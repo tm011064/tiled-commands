@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE218C37-A183-4EC5-B5EF-FAA0F533526F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TiledCommandRunner</RootNamespace>
+    <AssemblyName>TiledCommandRunner</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommandLine">
+      <HintPath>packages\CommandLineParser.1.9.71\lib\net45\CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandLine\Options.cs" />
+    <Compile Include="Commands\AbstractCommand.cs" />
+    <Compile Include="Commands\Expand\AbstractExpandStrategy.cs" />
+    <Compile Include="Commands\Expand\ExpandCommand.cs" />
+    <Compile Include="Commands\Expand\ExpandBottomStrategy.cs" />
+    <Compile Include="Commands\Expand\ExpandContext.cs" />
+    <Compile Include="Commands\Expand\ExpandTopStrategy.cs" />
+    <Compile Include="Commands\Expand\ExpandRightStrategy.cs" />
+    <Compile Include="Commands\Expand\ExpandLeftStrategy.cs" />
+    <Compile Include="Commands\Layers\CreateLayersCommand.cs" />
+    <Compile Include="Commands\Layers\CreateLayersContext.cs" />
+    <Compile Include="Commands\RunContext.cs" />
+    <Compile Include="Commands\MapManager.cs" />
+    <Compile Include="Commands\CommandRunnerFactory.cs" />
+    <Compile Include="ConsoleMenu\ICommandRunner.cs" />
+    <Compile Include="ConsoleMenu\IPage.cs" />
+    <Compile Include="ConsoleMenu\IRunContext.cs" />
+    <Compile Include="ConsoleMenu\Menu.cs" />
+    <Compile Include="ConsoleMenu\CommandPage.cs" />
+    <Compile Include="ConsoleMenu\Page.cs" />
+    <Compile Include="Direction.cs" />
+    <Compile Include="LineReader.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringObjectParser.cs" />
+    <Compile Include="Xml\Data.cs" />
+    <Compile Include="Xml\Image.cs" />
+    <Compile Include="Xml\Layer.cs" />
+    <Compile Include="Xml\LayerExtensions.cs" />
+    <Compile Include="Xml\Map.cs" />
+    <Compile Include="Xml\MapExxtensions.cs" />
+    <Compile Include="Xml\ObjectGroup.cs" />
+    <Compile Include="Xml\ObjectGroupExtensions.cs" />
+    <Compile Include="Xml\ObjectProperty.cs" />
+    <Compile Include="Xml\ObjectType.cs" />
+    <Compile Include="Xml\ObjectTypeGroup.cs" />
+    <Compile Include="Xml\PolyLine.cs" />
+    <Compile Include="Xml\Property.cs" />
+    <Compile Include="Xml\PropertyGroup.cs" />
+    <Compile Include="Xml\PropertyGroupExtensions.cs" />
+    <Compile Include="Xml\TiledObject.cs" />
+    <Compile Include="Xml\TiledObjectExtensions.cs" />
+    <Compile Include="Xml\TileSet.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
